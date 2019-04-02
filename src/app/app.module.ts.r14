@@ -1,0 +1,51 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+
+import { AppRoutingModule } from './app-routing.module'
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+
+import { AppComponent } from './app.component';
+// 首页组件
+import { MenuComponent } from './indexModule/menuComponent/menu.component'
+import { LastContactComponent } from './indexModule/lastContact/last-contact.component'
+import { UserPanelComponent } from './indexModule/userPanel/user-panel.component'
+import { CenterPanelComponent } from './indexModule/centerPanel/center-panel.component'
+import { TimeLineComponent } from './indexModule/timeLine/time-line.component'
+// 通讯录组件
+import { ContactsComponent } from './contactsModule/contacts.component'
+import { LastContactsComponent } from './contactsModule/contacts-list.component'
+import { AddFriendsComponent } from './contactsModule/contacts-add-friends.component'
+import { GroupsComponent } from './contactsModule/contacts-groups.component'
+
+//服务
+import { UserService } from './indexModule/userPanel/user-panel.service'
+import { ContactsService } from './contactsModule/contacts.service'
+
+@NgModule({
+	imports: [
+    BrowserModule,
+    HttpModule,
+    AppRoutingModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
+  ],
+  declarations: [
+    AppComponent,
+    MenuComponent,
+    LastContactComponent,
+    UserPanelComponent,
+    CenterPanelComponent,
+    TimeLineComponent,
+    ContactsComponent,
+    LastContactsComponent,
+    AddFriendsComponent,
+    GroupsComponent
+  ],
+  providers: [
+      UserService,
+      ContactsService
+  ],
+  bootstrap: [ AppComponent ]
+})
+export class AppModule { }

@@ -1,0 +1,184 @@
+@charset "utf-8";
+@import "base/common";
+
+//全局背景图
+body{
+	height: 100%;
+}
+.login_container{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: url(../images/login/login_backgroundImage.jpg) no-repeat top center fixed;
+	background-size: cover;
+}
+//中间系统
+.middle_system{
+	@include w_h(1000px, 468px);
+	position: absolute;
+	.middle_system_left{
+		@include w_h(532px, 468px);
+		position: relative;
+		.cms_manager_system{
+			img{
+				width: 100%;
+			}
+			.blue_cricle{
+				@include w_h(20px, 20px);
+				@include po_tl(215px, 0);
+			}
+			.blue_curve{
+				height: 66px;
+				@include po_tl(154px, 14px);
+				background: url(../images/login/blue_curve.png) no-repeat left top;
+				background-size: cover;
+				*background: url(../images/login/blue_curve.png) no-repeat -10px 3px;
+				background: url(../images/login/blue_curve.png) no-repeat -10px 3px \0;
+			}
+			.blue_location{
+				width: 31px;
+				@include po_tl(172px, 280px);
+				img{
+					height: 0;
+				}
+			}
+			.blue_title{
+				@include po_tr(220px, 131px);
+				color: #0166bc;
+				font-size: 18px;
+				display: none;
+			}
+		}
+		.study_service_platform{
+			img{
+				width: 100%;
+			}
+			.orange_disc{
+				@include w_h(19px, 19px);
+				@include po_tl(186px, 134px);
+			}
+			.orange_curve{
+				height: 110px;
+				@include po_tl(80px, 148px);
+				@include back_image_png(login/orange_curve, left, top);
+				background-size: cover;
+				*background: url(../images/login/orange_curve.png) no-repeat -28px 9px;
+				background: url(../images/login/orange_curve.png) no-repeat -28px 9px \0;
+			}
+			.orange_location{
+				width: 40px;
+				@include po_tr(77px, 52px);
+				img{
+					height: 0;
+				}
+			}
+			.orange_title{
+				@include po_tr(142px, 5px);
+				color: #0166bc;
+				font-size: 20px;
+				display: none;
+			}
+		}
+		.oa_office_sytem{
+			img{
+				width: 100%;
+			}
+			.deepBlue_disc{
+				@include w_h(22px, 22px);
+				@include po_bl(77px, 171px);
+			}
+			.deepBlue_curve{
+				height: 70px;
+				@include po_bl(97px, 188px);
+				@include back_image_png(login/deepBlue_curve, left, top);
+				background-size: cover;
+				*background: url("../images/login/deepBlue_curve.png") no-repeat -12px 2px;
+				background: url("../images/login/deepBlue_curve.png") no-repeat -12px 2px \0;
+			}
+			.deepBlue_location{
+				width: 31px;
+				@include po_br(109px, 45px);
+				img{
+					height: 0;
+				}
+			}
+			.deepBlue_title{
+				@include po_tr(361px, 5px);
+				color: #0166bc;
+				font-size: 20px;
+				display: none;
+			}
+		}
+	}
+	.middle_system_right{
+		@include w_h(468px, 468px);
+		@include back_image_png(login/login_right_backImage, center, center);
+		position: relative;
+		.login_title_logo{
+			@include w_h(330px, 68px);
+			@include po_tl(95px, 65px);
+		}
+		.login_username_modal{
+			@include w_h(330px, 45px);
+			@include po_tl(187px, 65px);
+			input{
+				@include w_h_lh(275px, 45px, 45px);
+				border: none;
+				padding-left: 55px;
+				@include back_image_png(login/login_username_backImage, left, center); 
+				color: #a8caec;
+			}
+		}
+		.login_userpassword_modal{
+			@include w_h(330px, 45px);
+			@include po_tl(250px, 65px);
+			input{
+				@include w_h_lh(275px, 45px, 45px);
+				border: none;
+				padding-left: 55px;
+				@include back_image_png(login/login_userpassword_backImage, left, center); 
+				color: #a8caec;
+			}
+		}
+		.login_button{
+			@include w_h(330px, 45px);
+			@include po_bl(102px, 65px);
+			.button{
+				@include w_h_lh(155px, 45px, 45px);
+				border: none;
+				color: #ffffff;
+				text-align: center;
+				font-size: 18px;
+			}
+			.btn_login{
+				@include back_image_png(login/login_btn_login, left, center);
+			}
+			.btn_reset{
+				@include back_image_png(login/login_btn_reset, left, center);
+			}
+		}
+	}
+}
+//页脚版权
+.footer_wrapDIV{
+    height: 161px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    .footer_cricle{
+    	@include w_h(27px, 27px);
+    	@include po_t(33px);
+    }
+    .footer_cricle_right{
+    	display: none;
+    }
+    .footer_curve{
+    	height: 54px;
+		@include po_t(50px);
+		background: url(../images/login/footer_curve.png) no-repeat left center;
+    }
+	.copyright_footerImg{
+		@include w_h(379px, 50px);
+		margin: 0 auto;
+	}
+}

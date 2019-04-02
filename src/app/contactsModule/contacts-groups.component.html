@@ -1,0 +1,71 @@
+<div class="contactsWin-panel-list">
+	<div class="list-label" (click)="created = !created">已创建群</div>
+	<ul class="list-lists" *ngIf="created">
+		<li class="groupWin" *ngFor="let group of groups">
+			<div class="user-info">
+				<span class="user-info__head"><img src="../../assets/images/head-white_03.png"></span>
+				<span class="user-info__name">{{group.name}}</span>
+			</div>
+			<span class="setBtn"><img src="../../assets/images/configer.png"></span>
+		</li>
+	</ul>
+	<div class="list-label">
+		<span>创建群</span><img src="../../assets/images/add.png" (click)="createGroup()">
+	</div>
+	<div class="list-label" (click)="openLast = !openLast;">
+		<span>我的联系人</span><input type="button" name="" value="全选" class="addBtn" *ngIf="openLast" (click)="$event.stopPropagation(); checkLastAll = !checkLastAll">
+	</div>
+	<ul class="list-lists" *ngIf="openLast">
+		<label *ngFor="let contact of contacts">
+			<li>
+				<div class="user-info">
+					<span class="user-info__head"><img src="../../assets/images/head-white_03.png"></span>
+					<span class="user-info__name">{{contact.name}}</span>
+				</div>
+				<input type="checkbox" name="" value="1" class="checkBtn" [checked]="checkLastAll">
+			</li>
+		</label>
+	</ul>
+	<div class="list-label" (click)="openStudents = !openStudents">
+		<span>学生</span><input type="button" name="" value="全选" class="addBtn" *ngIf="openStudents" (click)="$event.stopPropagation(); checkStudentsAll = !checkStudentsAll">
+	</div>
+	<ul class="list-lists" *ngIf="openStudents">
+		<label *ngFor="let student of students">
+			<li>
+				<div class="user-info">
+					<span class="user-info__head"><img src="../../assets/images/head-white_03.png"></span>
+					<span class="user-info__name">{{student.name}}</span>
+				</div>
+				<input type="checkbox" name="" value="1" class="checkBtn" [checked]="checkStudentsAll">
+			</li>
+		</label>
+	</ul>
+	<div class="list-label" (click)="openTeachers = !openTeachers">
+		<span>老师</span><input type="button" name="" value="全选" class="addBtn" *ngIf="openTeachers" (click)="$event.stopPropagation(); checkTeachersAll = !checkTeachersAll">
+	</div>
+	<ul class="list-lists" *ngIf="openTeachers">
+		<label *ngFor="let teacher of teachers">
+			<li>
+				<div class="user-info">
+					<span class="user-info__head"><img src="../../assets/images/head-white_03.png"></span>
+					<span class="user-info__name">{{teacher.name}}</span>
+				</div>
+				<input type="checkbox" name="" value="1" class="checkBtn" [checked]="checkTeachersAll">
+			</li>
+		</label>
+	</ul>
+	<div class="list-label" (click)="openParents = !openParents">
+		<span>家长</span><input type="button" name="" value="全选" class="addBtn" *ngIf="openParents" (click)="$event.stopPropagation(); checkParentsAll = !checkParentsAll">
+	</div>
+	<ul class="list-lists" *ngIf="openParents">
+		<label *ngFor="let parent of parents">
+			<li>
+				<div class="user-info">
+					<span class="user-info__head"><img src="../../assets/images/head-white_03.png"></span>
+					<span class="user-info__name">{{parent.name}}</span>
+				</div>
+				<input type="checkbox" name="" value="1" class="checkBtn" [checked]="checkParentsAll">
+			</li>
+		</label>
+	</ul>
+</div>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>西青四方交互平台登录</title>
+<link rel="stylesheet" type="text/css" href="style/login.css">
+<link rel="stylesheet" type="text/css" href="style/initialization.css">
+<script type="text/javascript" src='script/jquery-1.7.2.min.js'></script>
+<script type="text/javascript" src='script/login.js'></script>
+<script type="text/javascript">
+$(function () {
+  $('.footer_curve_left').animate({'width': '422px'}, 1500)
+  $('.footer_cricle_right').delay(1500)
+  $('.footer_cricle_right').fadeIn(0)
+
+  $('.blue_curve').animate({'width': '269px'}, 1500)
+  $('.blue_location img').delay(1500)
+  $('.blue_location img').animate({'height': '43px'}, 500)
+  $('.blue_title').delay(1800)
+  $('.blue_title').slideDown(500)
+
+  $('.orange_curve').delay(600)
+  $('.orange_curve').animate({'width': '295px'}, 1500)
+  $('.orange_location img').delay(2100)
+  $('.orange_location img').animate({'height': '55px'}, 500)
+  $('.orange_title').delay(2400)
+  $('.orange_title').slideDown(500)
+
+  $('.deepBlue_curve').delay(800)
+  $('.deepBlue_curve').animate({'width': '268px'}, 1500)
+  $('.deepBlue_location img').delay(2300)
+  $('.deepBlue_location img').animate({'height': '43px'}, 500)
+  $('.deepBlue_title').delay(2600)
+  $('.deepBlue_title').slideDown(500)
+})
+</script>
+	<!--[if (gte IE 6)&(lte IE 8)]>
+		<style type="text/css">
+		  .backImage_inIE{width: 100%; height:99.7%; display: block; position: absolute;}
+		  .backImage_inIE img{width: 100%; height: 100%; border: none}
+		</style>
+    <![endif]-->
+</head>
+<body>
+	<div class="login_container">
+		<div class="backImage_inIE dn"><img src="images/login/login_backgroundImage.jpg"></div>
+		<div class="middle_system">
+			<div class="middle_system_left fl">
+				<div class="cms_manager_system">
+					<div class="blue_cricle"><img src="images/login/blue_cricle.png"></div>
+					<div class="blue_curve"></div>
+					<div class="blue_location"><img src="images/login/curve_loaction.png"></div>
+					<div class="blue_title">CMS网站内容管理系统</div>
+				</div>
+				<div class="study_service_platform">
+					<div class="orange_disc"><img src="images/login/orange_cricle.png"></div>
+					<div class="orange_curve"></div>
+					<div class="orange_location"><img src="images/login/curve_loaction.png"></div>
+					<div class="orange_title">学习服务平台</div>
+				</div>
+				<div class="oa_office_sytem">
+					<div class="deepBlue_disc"><img src="images/login/deepBlue_cricle.png"></div>
+					<div class="deepBlue_curve"></div>
+					<div class="deepBlue_location"><img src="images/login/curve_loaction.png"></div>
+					<div class="deepBlue_title">OA办公系统</div>
+				</div>
+			</div>
+			<div class="middle_system_right fr">
+				<div class="login_title_logo"><img src="images/login/login_title_logo.png"></div>
+				<form method="post" action="">
+					<div class="login_username_modal"><input type="text" name="uname" value="请输入用户名" /></div>
+					<div class="login_userpassword_modal"><input type="text" name="upassword" value="请输入密码" /></div>
+					<div class="login_button">
+						<input type="button" name="login" class="button btn_login fl" value="登&nbsp;&nbsp;录">
+						<input type="button" name="reset" class="button btn_reset fr" value="重&nbsp;&nbsp;置">
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="footer_wrapDIV">
+			<div class="footer_cricle_left footer_cricle"><img src="images/login/footer_cricle.png"></div>
+			<div class="footer_curve_left footer_curve"></div>
+			<div class="footer_cricle_right footer_cricle"><img src="images/login/footer_cricle.png"></div>
+			<div class="copyright_footerImg"><img src="images/login/login_copyright.png"></div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+  $('.login_container').resizeWin($('.login_container'))
+  $('.footer_cricle_left').postion_footer_cricle($('.footer_cricle_left'), 379, 'left')
+  $('.footer_cricle_right').postion_footer_cricle($('.footer_cricle_right'), 379, 'right')
+  $('.footer_curve_left').postion_footer_curve($('.footer_curve_left'), 379, 'left')
+  $('.middle_system').middle_position($('.middle_system'))
+</script>
+</html>

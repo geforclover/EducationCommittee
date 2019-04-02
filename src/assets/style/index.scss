@@ -1,0 +1,779 @@
+@charset "utf-8";
+@import "base/_common";
+
+//主体页面-------------------------------------------------------------------------------
+#eoa_container{
+    @include back_image_jpg(background2, center, fixed);
+    -webkit-background-size:100%;
+    -moz-background-size:100%;
+    -o-background-size:100%;
+    background-size:100%;
+	min-height: 768px;
+    #eoa_container_back{
+        @include w_h(100%, 100%);
+        position: fixed;
+        z-index: 0;
+    }
+    #eoa_logo{
+        margin: 0 1px;
+        z-index: 1;
+        @include w_h(384px, 75px);
+        @include po_tl(48px, 51px);
+    }
+    //树叶左------------------------------------------------------------------------------
+    .leaves-left{
+        @include w_h(125px, 139px);
+        @include po_l(161px);
+        @include back_image_png(Leaves-left, left, -251px);
+        z-index: 0;
+    }
+    //树叶右------------------------------------------------------------------------------
+    .leaves-right{
+        @include w_h(166px, 234px);
+        @include po_r(65px);
+        @include back_image_png(Leaves-left, left, -163px);
+        z-index: 0;
+    }
+    //右上个人信息------------------------------------------------------------------------
+    #right_userInfo{
+        @include w_h(452px, 90px);
+        @include po_tr(50px, 35px);
+        .headPortrait{
+            @include w_h(90px, 90px);
+            img{
+                width: 100%;
+            }
+        }
+        .right_uInfo{
+            @include w_h(269px, 90px);
+            background-color: rgba(255, 255, 255, 0.25);
+            .uInfo_uname{
+                @include w_h_lh(244px, 45px, 45px);
+                color: #ffffff;
+                padding-left: 20px;
+                img{
+                    @include w_h(16px, 16px);
+                }
+            }
+            .uInfo_detail{
+                @include w_h_lh(244px, 45px, 45px);
+                padding-left: 20px;
+                .pl{
+                    padding-left: 20px;
+                }
+                img{
+                    @include w_h(13px, 13px);
+                }
+                .uInfo_detail_user{
+                    @include back_image_pngS(user, left, 3px, 13px, 13px);
+                    padding-left: 20px;
+                }
+                .link{
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+    //右上菜单图标----------------------------------------------
+    #right_menu{
+        @include w_h(92px, 90px);
+        @include po_tr(50px, 35px);
+        background-color: rgba(255, 255, 255, 0.25);
+        img{
+            @include w_h(45px, 24px);
+            margin-top: 31px;
+        }
+    }
+    //主体页面左---------------------------------------------------
+    #container_left_list{
+        width: 240px;
+        @include po_tl(199px, 39px);
+        .listUL_list{
+            margin-bottom: 27px;
+            overflow: hidden;
+            // 左侧菜单图标变量---------------------------------------------------
+            $left_list_order: (one, contacts), (two, study), (three, stuAttendance), (four, eduForum), (five, communication), (six, announce);
+            %list_tran{
+                -moz-transition: all .3s linear 0s;
+                -webkit-transition: all .3s linear 0s;
+                -o-transition: all .3s linear 0s;
+                transition: all .3s linear 0s;
+            }
+            a{
+                color: #fff;
+                overflow: hidden;
+                display: block;
+                span{
+                    display: block;
+                }
+                .left_listUL_img{
+                    @include w_h_lh(41px, 41px, 50px);
+                    background-color: #312d2b;
+                    border-radius: 50%;
+                    text-align: center;
+                    @extend %list_tran;
+                }
+                .left_listUL_title{
+                    @include w_h_lh(130px, 28px, 28px);
+                    @include back_image_png(black, left, center);
+                    margin: 7px 0 0 4px;
+                    text-align: center;
+                    @extend %list_tran;
+                }
+
+                @each $order, $back_name in $left_list_order{
+                    .left_listUL_#{$order}{
+                        @include back_image_png(#{$back_name}, left, center);
+                    }
+                }
+            }
+            a:hover{
+                .left_listUL_img{
+                    @include w_h_lh(86px, 86px, 40px);
+                    border-radius: 50%;
+                    text-align: center;
+                    @include back_liner(top, #68c0f1, #0177c8);
+                    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#68c0f1), to(#0177c8));
+                    @extend %list_tran;
+                }
+                @each $order, $back_name in $left_list_order{
+                    .left_listUL_#{$order}{
+                        @include back_image_png(#{$back_name}-blue, left, center);
+                    }
+                }
+                .left_listUL_title{
+                    @include w_h_lh(147px, 35px, 35px);
+                    @include back_image_png(blue, left, center);
+                    margin: 25px 0 0 7px;
+                    text-align: center;
+                    font-size: 20px;
+                    @extend %list_tran;
+                }
+            }
+        }
+    }
+    //ä¸»ä½“é¡µé¢ä¸­----------------------------------------------------------------------
+    #container_middle_content{
+        @include w_h(387px, 503px);
+        @include back_image_png(middleBack, left, center);
+        position: relative;
+        padding-top: 188px;
+        #middle_content_head{
+            @include w_h(166px, 166px);
+            @include po_tl(150px, 115px);
+            border-radius: 50%;
+            overflow: hidden;
+            img{
+                width: 100%;
+            }
+        }
+        #middle_content_name{
+            @include po_bl(250px, 166px);
+            color: #fff;
+        }
+        #middle_content_welcome{
+            @include po_bl(215px, 180px);
+            color: #fff;
+            text-align: center;
+        }
+    }
+    //ä¸»ä½“é¡µé¢å³--------------------------------------------------------
+    #container_right_list{
+        width: 111px;
+        @include po_tr(202px, 36px);
+        z-index: 11;
+        .right_list_Title{
+            height: 45px;
+            @include back_liner(top, #68c0f1, #0177c8);
+            background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#68c0f1), to(#0177c8));
+            filter:progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#68c0f1,endColorStr=#0177c8);
+            #recently{
+                @include w_h_lh(111px, 45px, 45px);
+                color: #fff;
+                display: block;
+                @include back_image_png(arrowDown, 90px, center);
+            }
+            .recently_list{
+                @include w_h(111px, 108px);
+                background-color: rgba(255, 255, 255, 0.25);
+                margin-top: 3px;
+                a{
+                    img{
+                        @include w_h(83px, 83px);
+                        margin-top: 13px;
+                    }
+                }
+            }
+            .recently_list_editor{
+                margin-top: 3px;
+            }
+        }
+    }
+}
+//æ—¶é—´è½´--------------------------------------------------------------------------------------------------
+#time_line_transition{
+    @include w_h(100%, 20%);
+    @include po_b_fix(0);
+    //background: url(../images/footer.png top center;
+    //background-size: 100% 100%;
+    > div{
+        position: fixed;
+        bottom: 3%;
+        span{
+            display: block;
+            color: #ffffff;
+        }
+    }
+    #time_lastYear{
+        left: 4%;
+        > span.time_line{
+            @include w_h(31px, 140px);
+            @include back_image_png(lastYear, center, bottom);
+        }
+    }
+    //æ—¶é—´è½´å˜é‡-------------------------------------------
+    $month_list: (_Jan, 0), (_Feb, 1), (_Mar, 2), (_Apr, 3), (_May, 4), (_Jun, 5), (_Jul, 6), (_Aug, 7), (_Sep, 8), (_Oct, 9), (_Nov, 10), (_Dec, 11);
+        @each $month, $index in $month_list{ 
+            .#{$month}{
+                left: 12% + $index * 7%;
+            }
+        }
+    @mixin line_transition($time){
+        -moz-transition: all $time linear 0s;
+        -webkit-transition: all $time linear 0s;
+        -o-transition: all $time linear 0s;
+        transition: all $time linear 0s;
+    }
+    #time_nextYear{
+        left: 95%;
+        > span.time_line{
+            @include w_h(31px, 92px);
+            @include back_image_png(nextYear, center, bottom);
+        }
+    }
+    .odd{
+        > span.time_line{
+            @include w_h(31px, 95px);
+            @include back_image_pngS(long, center, bottom, 18%, 90%);
+            @include line_transition(1s);
+        }
+        &:hover{
+            span.time_line{
+                height: 125px;
+                background-size: 25% 90%;
+                @include line_transition(0.5s);
+            }
+        }
+    }
+    .even{
+        > span.time_line{
+            @include w_h(31px, 35px);
+            @include back_image_pngS(short, center, bottom, 18%, 82%);
+            @include line_transition(1s);
+        }
+        &:hover{
+            span.time_line{
+                height: 65px;
+                background-size: 21% 82%;
+                @include line_transition(0.5s);
+            }
+        }
+    }
+}
+//èŠå¤©çª—å£------------------------------------------------------------------------------
+#eoa_messageWin{
+    @include w_h(990px, 620px);
+    @include po_tl(15%, 20%);
+    background-color: #ffffff;
+    z-index: 50;
+    display: none;
+    //èŠå¤©çª—å£å·¦------------------------------------------------------------------------
+    .messageWin_left_content{
+        @include w_h(250px, 620px);
+        background-color: #292d32;
+         //ä¸ªäººå§“ååŒº-------------------------------------------------------------------
+        > .name_for_user{
+            @include w_h(250px, 81px);
+            background-color: #2e3238;
+            img{
+                @include w_h(49px, 49px);
+                margin: 15px 0 0 15px;
+            }
+            ._uname{
+                @include h_lh(49px, 49px);
+                display: block;
+                color: #ffffff;
+                margin: 15px 0 0 15px;
+            }
+        }
+        //æœç´¢åŒº--------------------------------------------------------------------
+        .friend_search{
+            @include w_h(250px, 30px);
+            background-color: #2e3238;
+            border-radius: 5px;
+            input{
+                @include w_h_lh(170px, 30px, 30px);
+                @include back_image_png(Search, 10px, center);
+                margin-left: 15px;
+                padding-left: 50px;
+                background-color: #292d32;
+                color: #ffffff;
+                border: none;
+            }
+        }
+        //åŠŸèƒ½åŒº---------------------------------------------------------------------
+        .message_contacts{
+            @include w_h(250px, 46px);
+            background-color: #2e3238;
+            ul{
+                height: 44px;
+                @include back_image_pngS(message-back_03, left, center, 250px, 20px);
+                overflow: hidden;
+                background-color: #2e3238;
+                border-bottom: 1px solid #24272c;
+                li{
+                    height: 38px;
+                    .active{
+                        display: block;
+                        height: 3px;
+                        background-color: #298c4e;
+                    }
+                }
+            }
+            .contacts_person{
+                margin: 8px 28px 0 36px;
+                .active{
+                    width: 24px;
+                }
+            }
+            //.contacts_person.active{
+                //background: url(../images/green-cricle.png 10px 27px;
+            //}
+            .contacts_add{
+                margin: 12px 28px 0 30px;
+                .active{
+                    width: 22px;
+                }
+            }
+            // .contacts_add.active{
+               //background: url(../images/green-cricle.png 7px 23px;
+            //}
+            .contacts_group{
+                margin: 13px 37px 0 21px;
+                .active{
+                    width: 24px;
+                }
+            }
+            //.contacts_group.active{
+                //background: url(../images/green-cricle.png 9px 21px;
+            //}
+        }
+        //通讯录面板--------------------------------------
+        .list{
+            width: 250px;
+            color: #ffffff;
+            border-bottom: 1px solid #242424;
+        }
+        div.list{
+            .studen,.teach,.parent,.last,.new,.created{
+                @include h_lh(30px, 30px);
+                display: block;
+                padding-left: 35px;
+            }
+            //列表区体--------------------------------------
+            ul.list{
+                display: none;
+                li{
+                    @include w_h_lh(250px, 42px, 42px);
+                    margin-bottom: 2px;
+                    background-color: #2e3238;
+                    .head{
+                        @include w_h(32px, 32px);
+                        margin: 5px 0 0 14px;
+                        display: block;
+                        position: relative;
+                        .wait_read_news{
+                            @include w_h_lh(18px, 18px, 18px);
+                            @include po_tr(-3px, -9px);
+                            display: block;
+                            font-size: 12px;
+                            text-align: center;
+                            @include back_image_png(red_icon, left, center);
+                        }
+                    }
+                    .name{
+                        @include h_lh(42px, 42px);
+                        margin-left: 12px;
+                    }
+                }
+                .liOS{
+                    width: 243px;
+                }
+                .active{
+                    width: 246px;
+                    background-color: #373c43;
+                    border-right: 4px solid #388d58;
+                }
+                .activeOS{
+                    width: 238px !important;
+                }
+            }
+            .ulOS{
+                width: 243px;
+            }
+        }
+        div.divOS{
+            width: 243px;
+        }
+        //滚动条样式-------------------------------------
+        .scroll{
+            height: 463px;
+            //滚动条宽度、滑动条按钮、滑道、滑道圆角宽度、滑动条表面、滑动条边框、滑动条圆角宽度、鼠标滑过滑动条
+            @include scroll(7px, none, #5e6164, 0, #9b9b9b, solid 0, 0, #9b9b9b);
+        }
+        //添加朋友区------------------------------------------
+        .add_NewFriends_tab{
+            ul.list{
+                display: block !important;
+            }
+            input{
+                @include w_h_lh(42px, 20px, 20px);
+                margin-left: 95px;
+                border: none;
+                border-radius: 3px;
+            }
+            input.abled{
+                background-color: #298c4e;
+                color: #ffffff;
+            }
+            input.disabled{
+                background-color: #43474c;
+            }
+        }
+        //群组区------------------------------------------------------
+        .group_tab{
+            ul.list{
+                li{
+                    a{
+                        img{
+                            margin: 14px 14px 0 0;
+                            float: right;
+                        }
+                    }
+                }
+            }
+            div.create{
+                @include w_h(250px, 30px);
+                border-bottom: 1px solid #242424;
+                span.create{
+                    @include w_h_lh(183px, 30px, 30px);
+                    display: block;
+                    padding-left: 35px;
+                    color: #ffffff;
+                }
+                span.add{
+                    height: 30px;
+                    display: block;
+                    padding-top: 5px;
+                }
+            }
+            div.list{
+                .check{
+                    @include w_h(50px, 50px);
+                    margin: 25px 15px 0 0;
+                    border: none;
+                    float: right;
+                }
+                //创建群组复选框样式---------------------------------
+                .check[type=checkbox]{
+                    @include w_h(15px, 0);
+                    position: relative;
+                    display: none;
+                    &::before{
+                        @include w_h(15px, 15px);
+                        @include po_t(-12px);
+                        display: block;
+                        content: '';
+                        border-radius: 50%;
+                        @include back_image_png(checked-grey, left, center);
+                    }
+                    &:checked::before{
+                        @include back_image_png(checked-green, left, center);
+                    }
+                }
+            }
+        }
+    }
+    //聊天窗口右----------------------------------------------------------------------------------------------
+    .right-window{
+        @include w_h(740px, 620px);
+        background-color: #ffffff;
+        .menu{
+            @include w_h_lh(740px, 55px, 55px);
+            background-color: #5d6269;
+            //聊天窗口放大关闭---------------------------------------------
+            > ul{
+                margin-right: 20px;
+                position: absolute;
+                right: 0;
+                .mr{
+                    margin-right: 20px;
+                }
+            }
+        }
+        .winName{
+            @include w_h_lh(100%, 55px, 55px);
+            text-align: center;
+            position: relative;
+            span{
+                color: #ffffff;
+            }
+        }
+        //聊天窗口体-------------------------------------------------------
+        .content-win{
+            @include w_h(740px, 420px);
+            .title{
+                @include w_h(680px, 50px);
+                border-bottom: 1px solid #cfd3d9;
+                input{
+                    @include w_h_lh(75px, 30px, 30px);
+                    border: none;
+                    border-radius: 3px;
+                    background-color: #298c4e;
+                    color: #ffffff;
+                    margin: 10px 0 0 10px;
+                }
+            }
+            .content{
+                @include w_h(740px, 370px);
+            }
+        }
+        //聊天窗口底---------------------------------------------------
+        .send-win{
+            @include w_h(740px, 143px);
+            background-color: #f9f9f9;
+            border-top: 1px solid #ececec;
+            position: relative;
+            ul{
+                margin-top: 15px;
+                li{
+                    margin-left: 16px;
+                }
+            }
+            .send_textarea{
+                @include w_h(710px, 65px);
+                margin: 5px 0 0 15px;
+                background-color: #f9f9f9;
+                border: none;
+                resize:none;
+                outline: none;
+            }
+            .sendBTN{
+                @include w_h(66px, 24px);
+                @include po_br(9px, 10px);
+                color: #606060;
+                border: 1px solid #e3e3e3;
+                background-color: #f5f5f5;
+            }
+        }
+    }
+}
+//聊天窗口放大后--------------------------------------------------------------------------------
+.afterZOOM{
+    background-color: #ffffff!important;
+    @include po_tl(0!important, 0!important);
+    z-index: 50!important;
+}
+//个人信息--------------------------------------------------------------------------------------
+.personInfo{
+    @include w_h(461px, 680px);
+    @include po_tl(12%, 40%);
+    @include shadow(0, 0, 5px, 0, #2e3238);
+    -ms-filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+    filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#99000000',endColorstr='#99000000');
+    z-index: 52;
+    //个人信息头-------------------------------------------------------
+    .infoHead{
+        @include w_h(461px, 100px);
+        background-color: #5d6269;
+        position: relative;
+        border-bottom: 1px solid #555555;
+        .name{
+            @include w_h(200px, 70px);
+            @include po_tl(15px, 23px);
+            img{
+                @include w_h(70px, 70px);
+            }
+            .infoName{
+                @include w_h_lh(115px, 40px, 40px);
+                display: block;
+                color: #ffffff;
+                margin-left: 15px;
+            }
+            .staus{
+                @include w_h_lh(90px, 30px, 30px);
+                display: block;
+                color: #ffffff;
+                margin-left: 15px;
+                padding-left: 25px;
+                @include back_image_png(staus, left, center);
+            }
+        }
+        #closeInfo{
+            margin: 19px 21px 0 0;
+        }
+    }
+    //个人信息体--------------------------------------------------
+    .infoBody{
+        @include w_h(461px, 580px);
+        background-color: #ffffff;
+        > .tab{
+            > ul{
+                @include w_h(461px, 40px);
+                padding-top: 1px;
+                li{
+                    @include w_h_lh(153px, 35px, 35px);
+                    color: #5d6269;
+                    background-color: #d9d9d9;
+                }
+                .active{
+                    @include back_image_png(detailArrow, bottom, center);
+                    color: #5d6269;
+                    height: 39px;
+                }
+                li.mr{
+                    margin-right: 1px;
+                }
+            }
+        }
+    }
+}
+//交互活动------------------------------------------------------------------------------------------
+#interactivityWin{
+    @include w_h(990px, 620px);
+    @include po_tl(15%, 20%);
+    background-color: #ffffff;
+    z-index: 50;
+    //display: none;
+    //窗体顶部------------------------------------------------
+    .top_title{
+        @include w_h_lh(990px, 55px, 55px);
+        background-color: #24b56f;
+        border-bottom: 1px solid #009e52;
+        .title_name{
+            img{
+                margin: 16px 15px 0 22px;
+            }
+            span{
+                @include h_lh(55px, 55px);
+                color: #ffffff;
+                font-size: 20px;
+                display: block;
+            }
+        }
+        ul{
+            margin-right: 20px;
+            @include po_r(0);
+            .mr{
+                margin-right: 20px;
+            }
+        }
+    }
+    .middle_content{
+        @include w_h(990px, 524px);
+        //窗体中部左侧------------------------------------------------
+        .left_list{
+            @include w_h(212px, 524px);
+            background-color: #fafafa;
+            border-right: 1px solid #cfd3d9;
+            .div_list{
+                .active_title{
+                    @include w_h_lh(192px, 35px, 35px);
+                    display: block;
+                    margin-left: 20px;
+                    color: #999999;
+                }
+                //左侧列表------------------------------------------------------------
+                .ul_list{
+                    li{
+                        @include w_h_lh(192px, 35px, 35px);
+                        padding-left: 20px;
+                        span.icon{
+                            @include w_h(35px, 35px);
+                            display: block;
+                            margin-right: 5px;
+                            color: #666666;
+                            @include normal_back(interactivity_active_sprite);
+                            background-position-x: 2px;
+                        }
+                        //左侧菜单图标背景变量 -------------------------------------------------------------------------------
+                        $var_of_back: 
+                            (visits_reservation, -30px),
+                            (visits_history, -69px),
+                            (visits_feedback, -106px),
+                            (meeting_create, -137px),
+                            (meeting_history, -175px),
+                            (meeting_notice, -175px);
+                        @each $meetClass, $bpy in $var_of_back{
+                            span.#{$meetClass}{
+                                background-position-y: $bpy;
+                            }
+                        }
+                    }
+                    li.active{
+                        background-color: #31c27c!important;
+                        color: #ffffff;
+                        span.icon{
+                            background-position-x: -33px;
+                        }
+                    }
+                }
+            }
+        }
+        //窗体中部右侧-------------------------------------------------------------
+        .right_window{
+            @include w_h(776px, 524px);
+            .choose_title{
+                @include h_lh(48px, 48px);
+                #choose_class{
+                    @include w_h_lh(252px, 33px, 33px);
+                    margin: 8px 0 0 20px;
+                    border: 1px solid #e0e4ea;
+                    border-radius: 1px;
+                    color: #8c8c8c;
+                    background-color: #f8f8f8;
+                }
+                .btn{
+                    @include w_h_lh(96px, 31px, 31px);
+                    text-align: center;
+                    border: none;
+                    color: #ffffff;
+                    background-color: #39ad75;
+                    margin-left: 5px;
+                }
+            }
+            .visits_table{
+                @include w_h(732px, 424px);
+                margin: 0 auto;
+                border: 1px solid #e0e4ea;
+            }
+        }
+    }
+    //窗体底部提醒--------------------------------------------------------- 
+    .alert_bottom{
+        @include w_h_lh(990px, 40px, 40px);
+        background-color: #333333;
+        img{
+            margin: 3px 18px 0 20px;
+        }
+        div{
+            color: #ffffff;
+        }
+    }
+}
+//页脚图片------------------------------------------------------------------------------------------
+.body_foot_background{
+    @include w_h(100%, 20%);
+    @include po_b_fix(0);
+    z-index: 0;
+}

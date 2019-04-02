@@ -1,0 +1,761 @@
+@charset "utf-8";
+@import "base/_reset";
+@import "base/_common";
+
+//主体页面-------------------------------------------------------------------------------
+.eoa_container{
+  @include w_h(100vw, 100vh);
+  @include back_image_jpg(background2, center, fixed);
+  background-size: 100% 100%;
+    #eoa_container_back{
+        @include w_h(100%, 100%);
+        position: fixed;
+        z-index: 0;
+    }
+    #eoa_logo{
+        margin: 0 1px;
+        z-index: 1;
+        @include w_h(384px, 75px);
+        @include po_tl(48px, 51px);
+    }
+    //树叶左------------------------------------------------------------------------------
+    .leaves-left{
+        @include w_h(125px, 139px);
+        @include po_l(161px);
+        @include back_image_png(Leaves-left, left, -251px);
+        z-index: 0;
+    }
+    //树叶右------------------------------------------------------------------------------
+    .leaves-right{
+        @include w_h(166px, 234px);
+        @include po_r(65px);
+        @include back_image_png(Leaves-left, left, -163px);
+        z-index: 0;
+    }
+    //右上个人信息------------------------------------------------------------------------
+    #right_userInfo{
+        @include w_h(452px, 90px);
+        @include po_tr(50px, 35px);
+        .headPortrait{
+            @include w_h(90px, 90px);
+            img{
+                width: 100%;
+            }
+        }
+        .right_uInfo{
+            @include w_h(269px, 90px);
+            background-color: rgba(255, 255, 255, 0.25);
+            .uInfo_uname{
+                @include w_h_lh(244px, 45px, 45px);
+                color: #ffffff;
+                padding-left: 20px;
+                img{
+                    @include w_h(16px, 16px);
+                }
+            }
+            .uInfo_detail{
+                @include w_h_lh(244px, 45px, 45px);
+                padding-left: 20px;
+                .pl{
+                    padding-left: 20px;
+                }
+                img{
+                    @include w_h(13px, 13px);
+                }
+                .uInfo_detail_user{
+                    @include back_image_pngS(user, left, 3px, 13px, 13px);
+                    padding-left: 20px;
+                }
+                .link{
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+    //右上菜单图标----------------------------------------------
+    #right_menu{
+        @include w_h(92px, 90px);
+        @include po_tr(50px, 35px);
+        background-color: rgba(255, 255, 255, 0.25);
+        img{
+            @include w_h(45px, 24px);
+            margin-top: 31px;
+        }
+    }
+    //主体页面中----------------------------------------------------------------------
+    #container_middle_content{
+        @include w_h(387px, 503px);
+        @include back_image_png(middleBack, left, center);
+        position: relative;
+        padding-top: 188px;
+        #middle_content_head{
+            @include w_h(166px, 166px);
+            @include po_tl(150px, 115px);
+            border-radius: 50%;
+            overflow: hidden;
+            img{
+                width: 100%;
+            }
+        }
+        #middle_content_name{
+            @include po_bl(250px, 166px);
+            color: #fff;
+        }
+        #middle_content_welcome{
+            @include po_bl(215px, 180px);
+            color: #fff;
+            text-align: center;
+        }
+    }
+}
+
+/* 菜单
+   ========================================================================== */
+.menu{
+  width: 240px;
+  @include po_tl(199px, 39px);
+  &-item{
+    margin-bottom: 27px;
+    display: flex;
+    overflow: hidden;
+    color: #fff;
+    cursor: pointer;
+    outline: 0;
+    // 左侧菜单图标变量---------------------------------------------------
+    $left_list_order: (one, contacts), (two, study), (three, stuAttendance), (four, eduForum), (five, communication), (six, announce);
+    %list_tran{
+      -moz-transition: all .3s linear 0s;
+      -webkit-transition: all .3s linear 0s;
+      -o-transition: all .3s linear 0s;
+      transition: all .3s linear 0s;
+    }
+    span{
+      display: block;
+    }
+    &__img{
+        @include w_h_lh(41px, 41px, 50px);
+        background-color: #312d2b;
+        border-radius: 50%;
+        text-align: center;
+        @extend %list_tran;
+    }
+    &__title{
+        @include w_h_lh(130px, 28px, 28px);
+        @include back_image_png(black, left, center);
+        margin: 7px 0 0 4px;
+        text-align: center;
+        @extend %list_tran;
+    }
+
+    @each $order, $back_name in $left_list_order{
+        &__#{$order}{
+            @include back_image_png(#{$back_name}, left, center);
+        }
+    }
+
+    a:hover{
+        &__img{
+            @include w_h_lh(86px, 86px, 40px);
+            border-radius: 50%;
+            text-align: center;
+            @include back_liner(top, #68c0f1, #0177c8);
+            background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#68c0f1), to(#0177c8));
+            @extend %list_tran;
+        }
+        @each $order, $back_name in $left_list_order{
+            &__#{$order}{
+                @include back_image_png(#{$back_name}-blue, left, center);
+            }
+        }
+        &__title{
+            @include w_h_lh(147px, 35px, 35px);
+            @include back_image_png(blue, left, center);
+            margin: 25px 0 0 7px;
+            text-align: center;
+            font-size: 20px;
+            @extend %list_tran;
+        }
+    }
+  }
+}
+/* 最近联系人
+   ========================================================================== */
+.lastContact{
+  width: 111px;
+  @include po_tr(202px, 36px);
+  z-index: 11;
+  &-title{
+    height: 45px;
+    @include back_liner(top, #68c0f1, #0177c8);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#68c0f1), to(#0177c8));
+  }
+  &-list{
+    color: #fff;
+    @include back_image_png(arrowDown, 90px, center);
+    &__item{
+      @include w_h(111px, 108px);
+      background-color: rgba(255, 255, 255, 0.25);
+      margin-top: 3px;
+      a{
+        img{
+          @include w_h(83px, 83px);
+          margin-top: 13px;
+        }
+      }
+    }
+  }
+  &-editor{
+    margin-top: 3px;
+  }
+}
+//时间轴--------------------------------------------------------------------------------------------------
+#time_line_transition{
+  @include w_h(100%, 20%);
+  @include po_b_fix(0);
+  //background: url(../images/footer.png top center;
+  //background-size: 100% 100%;
+  > div{
+    position: fixed;
+    bottom: 3%;
+    span{
+      display: block;
+      color: #ffffff;
+    }
+  }
+    #time_lastYear{
+      left: 4%;
+      > span.time_line{
+        @include w_h(31px, 140px);
+        @include back_image_png(lastYear, center, bottom);
+      }
+    }
+    //时间轴变量-------------------------------------------
+    $month_list: (_Jan, 0), (_Feb, 1), (_Mar, 2), (_Apr, 3), (_May, 4), (_Jun, 5), (_Jul, 6), (_Aug, 7), (_Sep, 8), (_Oct, 9), (_Nov, 10), (_Dec, 11);
+      @each $month, $index in $month_list{ 
+        .#{$month}{
+          left: 12% + $index * 7%;
+        }
+      }
+    @mixin line_transition($time){
+      -moz-transition: all $time linear 0s;
+      -webkit-transition: all $time linear 0s;
+      -o-transition: all $time linear 0s;
+      transition: all $time linear 0s;
+    }
+    #time_nextYear{
+      left: 95%;
+      > span.time_line{
+        @include w_h(31px, 92px);
+        @include back_image_png(nextYear, center, bottom);
+      }
+    }
+    .odd{
+      > span.time_line{
+        @include w_h(31px, 95px);
+        @include back_image_pngS(long, center, bottom, 18%, 90%);
+        @include line_transition(1s);
+      }
+      &:hover{
+        span.time_line{
+          height: 125px;
+          background-size: 25% 90%;
+          @include line_transition(0.5s);
+        }
+      }
+    }
+    .even{
+      > span.time_line{
+        @include w_h(31px, 35px);
+        @include back_image_pngS(short, center, bottom, 18%, 82%);
+        @include line_transition(1s);
+      }
+      &:hover{
+        span.time_line{
+          height: 65px;
+          background-size: 21% 82%;
+          @include line_transition(0.5s);
+        }
+      }
+    }
+}
+//聊天窗口------------------------------------------------------------------------------
+.contactsWin{
+  @include w_h(51.5vw, 65.5vh);
+  @include po_tl(calc(50vh - 65.5vh / 2), calc(50vw - 51.5vw / 2));
+  display: flex;
+  background-color: #ffffff;
+  z-index: 50;
+  //聊天窗口左------------------------------------------------------------------------
+  &-panel{
+    @include w_h(25%, inherit);
+    background-color: #292d32;
+    //个人姓名区-------------------------------------------------------------------
+    &-user{
+      height: 8.5vh;
+      background-color: #2e3238;
+      img{
+        @include w_h(49px, 49px);
+        margin: 15px 0 0 15px;
+      }
+      ._uname{
+        @include h_lh(49px, 49px);
+        display: block;
+        color: #ffffff;
+        margin: 15px 0 0 15px;
+      }
+    }
+    //搜索区--------------------------------------------------------------------
+    &-search{
+      height: 3.5vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      background-color: #2e3238;
+      input{
+        @include w_h_lh(10vw, 3vh, 3vh);
+        @include back_image_png(Search, 10px, center);
+        padding-left: 2vw;
+        color: #ffffff;
+        border: none;
+        background-color: #292d32;
+      }
+    }
+    //功能区---------------------------------------------------------------------
+    &-contacts{
+      height: 5vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      background-color: #2e3238;
+      @include back_image_pngS(message-back_03, left, center, 250px, 20px);
+      overflow: hidden;
+      background-color: #2e3238;
+      border-bottom: 1px solid #24272c;
+      li{
+        .active{
+          display: block;
+          height: 3px;
+          background-color: #298c4e;
+        }
+      }
+    }
+
+    //通讯录面板--------------------------------------
+    &-list{
+      height: calc(48.5vh - 1px);
+      overflow-y: auto;
+      overflow-x: hidden;
+      //滚动条宽度、滑动条按钮、滑道、滑道圆角宽度、滑动条表面、滑动条边框、滑动条圆角宽度、鼠标滑过滑动条
+      @include scroll(7px, none, #2e3238, 0, rgba(155, 155, 155, 0.4), solid 0, 0, #9b9b9b);
+      .list-label{
+        padding: 1vh 0.5vw 1vh 1vw;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+        color: #ffffff;
+        cursor: default;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .list-lists{
+        li{
+          padding: 1vh 0.5vw 1vh 1vw;
+          margin-bottom: 2px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          color: #ffffff;
+          background-color: #2e3238;
+          @at-root{
+            .user-info{
+              display: flex;
+              align-items: center;
+              &__head{
+                @include w_h(32px, 32px);
+                display: block;
+                position: relative;
+                .wait_read_news{
+                  @include w_h_lh(18px, 18px, 18px);
+                  @include po_tr(-3px, -9px);
+                  display: block;
+                  font-size: 12px;
+                  text-align: center;
+                  @include back_image_png(red_icon, left, center);
+                }
+              }
+              &__name{
+                @include h_lh(42px, 42px);
+                margin-left: 12px;
+              }
+            }
+            .addBtn{
+              @include w_h_lh(42px, 20px, 20px);
+              border: none;
+              border-radius: 3px;
+              background-color: #298c4e;
+              color: #ffffff;
+            }
+            .addBtn._disabled{
+              background-color: #43474c;
+            }
+            .setBtn{
+              margin-right: 0.5vw;
+            }
+            .checkBtn{
+              margin-right: 0.5vw;
+            }
+            div.create{
+              @include w_h(250px, 30px);
+              border-bottom: 1px solid #242424;
+              span.create{
+                @include w_h_lh(183px, 30px, 30px);
+                display: block;
+                padding-left: 35px;
+                color: #ffffff;
+              }
+              span.add{
+                height: 30px;
+                display: block;
+                padding-top: 5px;
+              }
+            }
+            div.list{
+              .check{
+                @include w_h(50px, 50px);
+                margin: 25px 15px 0 0;
+                border: none;
+                float: right;
+              }
+              //创建群组复选框样式---------------------------------
+              .check[type=checkbox]{
+                @include w_h(15px, 0);
+                position: relative;
+                display: none;
+                &::before{
+                  @include w_h(15px, 15px);
+                  @include po_t(-12px);
+                  display: block;
+                  content: '';
+                  border-radius: 50%;
+                  @include back_image_png(checked-grey, left, center);
+                }
+                &:checked::before{
+                  @include back_image_png(checked-green, left, center);
+                }
+              }
+            }
+          }
+        }
+        .active{
+          width: 246px;
+          background-color: #373c43;
+          border-right: 4px solid #388d58;
+        }
+      }
+    }
+  }
+  //聊天窗口右----------------------------------------------------------------------------------------------
+  &-content{
+    @include w_h(75%, inherit);
+    background-color: rgb(249, 249, 249);
+    &-head{
+      @include h_lh(7vh, 7vh);
+      display: flex;
+      justify-content: space-between;
+      box-shadow: 0px 3px 2px 0px rgba(0, 0, 0, 0.3);
+      background-color: #5d6269;
+      ._selectedName{
+        @include h_lh(7vh, 7vh);
+        padding-left: 1vw;
+        color: #ffffff;
+        font-size: 24px;
+      }
+      ._winBtn{
+        width: 3vw;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-right: 0.5vw;
+      }
+    }
+      
+    //聊天窗口体-------------------------------------------------------
+    &-output{
+      height: 43vh;
+      .content{
+        @include w_h(740px, 370px);
+      }
+    }
+    //聊天窗口底---------------------------------------------------
+     &-input{
+      height: calc(15.5vh - 1px);
+      background-color: #ffffff;
+      border-top: 1px solid rgb(221, 221, 221);
+      position: relative;
+      .input-btn-list{
+        width: 9vw;
+        margin-top: 1vh;
+        display: flex;
+        justify-content: space-evenly;
+      }
+      .input-textarea{
+          @include w_h(95%, 7vh);
+          display: block;
+          margin: 10px auto 5px;
+          background-color: #ffffff;
+          resize:none;
+          //滚动条宽度、滑动条按钮、滑道、滑道圆角宽度、滑动条表面、滑动条边框、滑动条圆角宽度、鼠标滑过滑动条
+          @include scroll(7px, none, #ffffff, 8px, rgb(221, 220, 220), solid 0, 8px, rgb(180, 180, 180));
+      }
+      .sendBTN{
+          @include w_h(66px, 24px);
+          @include po_br(9px, 10px);
+          color: #606060;
+          border: 1px solid #e3e3e3;
+          background-color: #f5f5f5;
+      }
+    }
+  }
+}
+/* 创建群组
+   ========================================================================== */
+.create-group{
+  @include w_h(20vw, 65vh);
+  @include po_tl(5%, 37%);
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.4);
+  background-color: #ffffff;
+  &-head{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: rgb(93, 98, 105);
+    ._avater{
+      @include w_h(6vh, 6vh);
+      margin-left: 1vw;
+      background-color: #ffffff;
+    }
+    ._closeBtn{
+      @include po_tr(15px, 15px);
+    }
+  }
+}
+/* 表单
+   ========================================================================== */
+.form{
+  .form-item{
+    width: calc(100% - 2vw);
+    display: flex;
+    margin: 2vh 1vw 0;
+    &__label{
+      width: 20%;
+      margin-right: 10px;
+      padding: 0.5vh 0;
+    }
+    &__input{
+      width: calc(80% - 15px);
+      border-bottom: 1px solid #cccccc;
+      padding: 0.5vh 0 0.5vh 5px;
+      color: rgb(124, 121, 121);
+    }
+  }
+}
+//聊天窗口放大后--------------------------------------------------------------------------------
+.afterZOOM{
+    background-color: #ffffff!important;
+    @include po_tl(0!important, 0!important);
+    z-index: 50!important;
+}
+//个人信息--------------------------------------------------------------------------------------
+.personInfo{
+    @include w_h(461px, 680px);
+    @include po_tl(12%, 40%);
+    @include shadow(0, 0, 5px, 0, #2e3238);
+    -ms-filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+    filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#99000000',endColorstr='#99000000');
+    z-index: 52;
+    //个人信息头-------------------------------------------------------
+    .infoHead{
+        @include w_h(461px, 100px);
+        background-color: #5d6269;
+        position: relative;
+        border-bottom: 1px solid #555555;
+        .name{
+            @include w_h(200px, 70px);
+            @include po_tl(15px, 23px);
+            img{
+                @include w_h(70px, 70px);
+            }
+            .infoName{
+                @include w_h_lh(115px, 40px, 40px);
+                display: block;
+                color: #ffffff;
+                margin-left: 15px;
+            }
+            .staus{
+                @include w_h_lh(90px, 30px, 30px);
+                display: block;
+                color: #ffffff;
+                margin-left: 15px;
+                padding-left: 25px;
+                @include back_image_png(staus, left, center);
+            }
+        }
+        #closeInfo{
+            margin: 19px 21px 0 0;
+        }
+    }
+    //个人信息体--------------------------------------------------
+    .infoBody{
+        @include w_h(461px, 580px);
+        background-color: #ffffff;
+        > .tab{
+            > ul{
+                @include w_h(461px, 40px);
+                padding-top: 1px;
+                li{
+                    @include w_h_lh(153px, 35px, 35px);
+                    color: #5d6269;
+                    background-color: #d9d9d9;
+                }
+                .active{
+                    @include back_image_png(detailArrow, bottom, center);
+                    color: #5d6269;
+                    height: 39px;
+                }
+                li.mr{
+                    margin-right: 1px;
+                }
+            }
+        }
+    }
+}
+//交互活动------------------------------------------------------------------------------------------
+#interactivityWin{
+    @include w_h(990px, 620px);
+    @include po_tl(15%, 20%);
+    background-color: #ffffff;
+    z-index: 50;
+    //display: none;
+    //窗体顶部------------------------------------------------
+    .top_title{
+        @include w_h_lh(990px, 55px, 55px);
+        background-color: #24b56f;
+        border-bottom: 1px solid #009e52;
+        .title_name{
+            img{
+                margin: 16px 15px 0 22px;
+            }
+            span{
+                @include h_lh(55px, 55px);
+                color: #ffffff;
+                font-size: 20px;
+                display: block;
+            }
+        }
+        ul{
+            margin-right: 20px;
+            @include po_r(0);
+            .mr{
+                margin-right: 20px;
+            }
+        }
+    }
+    .middle_content{
+        @include w_h(990px, 524px);
+        //窗体中部左侧------------------------------------------------
+        .left_list{
+            @include w_h(212px, 524px);
+            background-color: #fafafa;
+            border-right: 1px solid #cfd3d9;
+            .div_list{
+                .active_title{
+                    @include w_h_lh(192px, 35px, 35px);
+                    display: block;
+                    margin-left: 20px;
+                    color: #999999;
+                }
+                //左侧列表------------------------------------------------------------
+                .ul_list{
+                    li{
+                        @include w_h_lh(192px, 35px, 35px);
+                        padding-left: 20px;
+                        span.icon{
+                            @include w_h(35px, 35px);
+                            display: block;
+                            margin-right: 5px;
+                            color: #666666;
+                            @include normal_back(interactivity_active_sprite);
+                            background-position-x: 2px;
+                        }
+                        //左侧菜单图标背景变量 -------------------------------------------------------------------------------
+                        $var_of_back: 
+                            (visits_reservation, -30px),
+                            (visits_history, -69px),
+                            (visits_feedback, -106px),
+                            (meeting_create, -137px),
+                            (meeting_history, -175px),
+                            (meeting_notice, -175px);
+                        @each $meetClass, $bpy in $var_of_back{
+                            span.#{$meetClass}{
+                                background-position-y: $bpy;
+                            }
+                        }
+                    }
+                    li.active{
+                        background-color: #31c27c!important;
+                        color: #ffffff;
+                        span.icon{
+                            background-position-x: -33px;
+                        }
+                    }
+                }
+            }
+        }
+        //窗体中部右侧-------------------------------------------------------------
+        .right_window{
+            @include w_h(776px, 524px);
+            .choose_title{
+                @include h_lh(48px, 48px);
+                #choose_class{
+                    @include w_h_lh(252px, 33px, 33px);
+                    margin: 8px 0 0 20px;
+                    border: 1px solid #e0e4ea;
+                    border-radius: 1px;
+                    color: #8c8c8c;
+                    background-color: #f8f8f8;
+                }
+                .btn{
+                    @include w_h_lh(96px, 31px, 31px);
+                    text-align: center;
+                    border: none;
+                    color: #ffffff;
+                    background-color: #39ad75;
+                    margin-left: 5px;
+                }
+            }
+            .visits_table{
+                @include w_h(732px, 424px);
+                margin: 0 auto;
+                border: 1px solid #e0e4ea;
+            }
+        }
+    }
+    //窗体底部提醒--------------------------------------------------------- 
+    .alert_bottom{
+        @include w_h_lh(990px, 40px, 40px);
+        background-color: #333333;
+        img{
+            margin: 3px 18px 0 20px;
+        }
+        div{
+            color: #ffffff;
+        }
+    }
+}
+//页脚图片------------------------------------------------------------------------------------------
+.body_foot_background{
+    @include w_h(100%, 20%);
+    @include po_b_fix(0);
+    z-index: 0;
+}

@@ -1,0 +1,15 @@
+<div class="contactsWin-panel-list">
+  <div class="list-label">
+		<span>创建联系人</span><img src="../../assets/images/add.png">
+	</div>
+	<div class="list-label">新朋友</div>
+	<ul class="list-lists">
+		<li *ngFor="let new of addNewList">
+			<div class="user-info">
+				<span class="user-info__head"><img src="../../assets/images/head-white_03.png"></span>
+				<span class="user-info__name">{{new.name}}</span>
+			</div>
+			<input type="button" name="" value="添加" class="addBtn">
+		</li>
+	</ul>
+</div>

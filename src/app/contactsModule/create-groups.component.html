@@ -1,0 +1,30 @@
+<div class="create-group">
+	<div class="create-group-head">
+	  <div class="_avater">
+	  	<img src="">
+	  </div>
+		<img src="../../assets/images/menu_09.png" class="_closeBtn">
+	</div>
+	<div class="form">
+	  <div class="form-item">
+	  	<span class="form-item__label">分组名称</span><input type="text" class="form-item__input">
+	  </div>
+	  <div class="form-item">
+	  	<span class="form-item__label">分组说明</span><input type="text" class="form-item__input">
+	  </div>
+		<table class="addcontactsTable">
+			<tbody>
+			<tr>
+				<td colspan="4">
+					<div style="height: 270px;" id="editGroups">
+						<div id="ContactsButton"><input type="button" value="添加分组联系人" onclick="AddGroupsContacts('add')" class="button"></div>
+						<div>
+							<ul id="Contacts"></ul>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr id="addbutton"><td colspan="4" align="center"><input type="button" value="提交" onclick="AddGroups('#form3','add')" class="button">&nbsp;<input type="button" value="重置" onclick="resettingContacts()" class="button"></td></tr>
+		</tbody></table>
+	</div>
+</div>

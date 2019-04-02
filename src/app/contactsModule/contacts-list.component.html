@@ -1,0 +1,28 @@
+<div class="contactsWin-panel-list">
+	<div class="list-label" (click)="openLast = !openLast">最近联系人</div>
+	<ul class="list-lists" *ngIf="openLast">
+		<li *ngFor="let contact of contacts" (click)="selectName(contact.name)">
+			<div class="user-info">
+				<span class="user-info__head"><img src="../../assets/images/head-white_03.png"><span class="wait_read_news f12">99</span></span>
+				<span class="user-info__name">{{contact.name}}</span>
+			</div>
+		</li>
+	</ul>
+	<div class="list-label" (click)="openStudents = !openStudents">学生</div>
+	<ul class="list-lists" *ngIf="openStudents">
+		<li *ngFor="let student of students" (click)="selectName(student.name)">
+			<div class="user-info">
+				<span class="user-info__head"><img src="../../assets/images/head-white_03.png"></span>
+				<span class="user-info__name">{{student.name}}</span>
+			</div>
+		</li>
+	</ul>
+	<div class="list-label" (click)="openTeachers = !openTeachers">老师</div>
+	<ul class="list-lists" *ngIf="openTeachers">
+		<li *ngFor="let teacher of teachers" (click)="selectName(teacher.name)"><div class="user-info"><span class="user-info__head"><img src="../../assets/images/head-white_03.png"></span><span class="user-info__name">{{teacher.name}}</span></div></li>
+	</ul>
+	<div class="list-label" (click)="openParents = !openParents">家长</div>
+	<ul class="list-lists" *ngIf="openParents">
+		<li *ngFor="let parent of parents" (click)="selectName(parent.name)"><div class="user-info"><span class="user-info__head"><img src="../../assets/images/head-white_03.png"></span><span class="user-info__name">{{parent.name}}</span></div></li>
+	</ul>
+</div>

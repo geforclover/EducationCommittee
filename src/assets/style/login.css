@@ -1,0 +1,192 @@
+body {
+  height: 100%; }
+
+.login_container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: url(../images/login/login_backgroundImage.jpg) no-repeat top center fixed;
+  background-size: cover; }
+
+.middle_system {
+  width: 1000px;
+  height: 468px;
+  position: absolute; }
+  .middle_system .middle_system_left {
+    width: 532px;
+    height: 468px;
+    position: relative; }
+    .middle_system .middle_system_left .cms_manager_system img {
+      width: 100%; }
+    .middle_system .middle_system_left .cms_manager_system .blue_cricle {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 215px;
+      left: 0; }
+    .middle_system .middle_system_left .cms_manager_system .blue_curve {
+      height: 66px;
+      position: absolute;
+      top: 154px;
+      left: 14px;
+      background: url(../images/login/blue_curve.png) no-repeat left top;
+      background-size: cover;
+      *background: url(../images/login/blue_curve.png) no-repeat -10px 3px;
+      background: url(../images/login/blue_curve.png) no-repeat -10px 3px \0; }
+    .middle_system .middle_system_left .cms_manager_system .blue_location {
+      width: 31px;
+      position: absolute;
+      top: 172px;
+      left: 280px; }
+      .middle_system .middle_system_left .cms_manager_system .blue_location img {
+        height: 0; }
+    .middle_system .middle_system_left .cms_manager_system .blue_title {
+      position: absolute;
+      top: 220px;
+      right: 131px;
+      color: #0166bc;
+      font-size: 18px;
+      display: none; }
+    .middle_system .middle_system_left .study_service_platform img {
+      width: 100%; }
+    .middle_system .middle_system_left .study_service_platform .orange_disc {
+      width: 19px;
+      height: 19px;
+      position: absolute;
+      top: 186px;
+      left: 134px; }
+    .middle_system .middle_system_left .study_service_platform .orange_curve {
+      height: 110px;
+      position: absolute;
+      top: 80px;
+      left: 148px;
+      background: url("../images/login/orange_curve.png") no-repeat left top;
+      background-size: cover;
+      *background: url(../images/login/orange_curve.png) no-repeat -28px 9px;
+      background: url(../images/login/orange_curve.png) no-repeat -28px 9px \0; }
+    .middle_system .middle_system_left .study_service_platform .orange_location {
+      width: 40px;
+      position: absolute;
+      top: 77px;
+      right: 52px; }
+      .middle_system .middle_system_left .study_service_platform .orange_location img {
+        height: 0; }
+    .middle_system .middle_system_left .study_service_platform .orange_title {
+      position: absolute;
+      top: 142px;
+      right: 5px;
+      color: #0166bc;
+      font-size: 20px;
+      display: none; }
+    .middle_system .middle_system_left .oa_office_sytem img {
+      width: 100%; }
+    .middle_system .middle_system_left .oa_office_sytem .deepBlue_disc {
+      width: 22px;
+      height: 22px;
+      position: absolute;
+      bottom: 77px;
+      left: 171px; }
+    .middle_system .middle_system_left .oa_office_sytem .deepBlue_curve {
+      height: 70px;
+      position: absolute;
+      bottom: 97px;
+      left: 188px;
+      background: url("../images/login/deepBlue_curve.png") no-repeat left top;
+      background-size: cover;
+      *background: url("../images/login/deepBlue_curve.png") no-repeat -12px 2px;
+      background: url("../images/login/deepBlue_curve.png") no-repeat -12px 2px \0; }
+    .middle_system .middle_system_left .oa_office_sytem .deepBlue_location {
+      width: 31px;
+      position: absolute;
+      bottom: 109px;
+      right: 45px; }
+      .middle_system .middle_system_left .oa_office_sytem .deepBlue_location img {
+        height: 0; }
+    .middle_system .middle_system_left .oa_office_sytem .deepBlue_title {
+      position: absolute;
+      top: 361px;
+      right: 5px;
+      color: #0166bc;
+      font-size: 20px;
+      display: none; }
+  .middle_system .middle_system_right {
+    width: 468px;
+    height: 468px;
+    background: url("../images/login/login_right_backImage.png") no-repeat center center;
+    position: relative; }
+    .middle_system .middle_system_right .login_title_logo {
+      width: 330px;
+      height: 68px;
+      position: absolute;
+      top: 95px;
+      left: 65px; }
+    .middle_system .middle_system_right .login_username_modal {
+      width: 330px;
+      height: 45px;
+      position: absolute;
+      top: 187px;
+      left: 65px; }
+      .middle_system .middle_system_right .login_username_modal input {
+        width: 275px;
+        height: 45px;
+        line-height: 45px;
+        border: none;
+        padding-left: 55px;
+        background: url("../images/login/login_username_backImage.png") no-repeat left center;
+        color: #a8caec; }
+    .middle_system .middle_system_right .login_userpassword_modal {
+      width: 330px;
+      height: 45px;
+      position: absolute;
+      top: 250px;
+      left: 65px; }
+      .middle_system .middle_system_right .login_userpassword_modal input {
+        width: 275px;
+        height: 45px;
+        line-height: 45px;
+        border: none;
+        padding-left: 55px;
+        background: url("../images/login/login_userpassword_backImage.png") no-repeat left center;
+        color: #a8caec; }
+    .middle_system .middle_system_right .login_button {
+      width: 330px;
+      height: 45px;
+      position: absolute;
+      bottom: 102px;
+      left: 65px; }
+      .middle_system .middle_system_right .login_button .button {
+        width: 155px;
+        height: 45px;
+        line-height: 45px;
+        border: none;
+        color: #ffffff;
+        text-align: center;
+        font-size: 18px; }
+      .middle_system .middle_system_right .login_button .btn_login {
+        background: url("../images/login/login_btn_login.png") no-repeat left center; }
+      .middle_system .middle_system_right .login_button .btn_reset {
+        background: url("../images/login/login_btn_reset.png") no-repeat left center; }
+
+.footer_wrapDIV {
+  height: 161px;
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
+  .footer_wrapDIV .footer_cricle {
+    width: 27px;
+    height: 27px;
+    position: absolute;
+    top: 33px; }
+  .footer_wrapDIV .footer_cricle_right {
+    display: none; }
+  .footer_wrapDIV .footer_curve {
+    height: 54px;
+    position: absolute;
+    top: 50px;
+    background: url(../images/login/footer_curve.png) no-repeat left center; }
+  .footer_wrapDIV .copyright_footerImg {
+    width: 379px;
+    height: 50px;
+    margin: 0 auto; }
+
+/*# sourceMappingURL=login.css.map */

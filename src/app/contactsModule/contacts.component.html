@@ -1,0 +1,61 @@
+<div class="contactsWin">
+	<!-- 左分区 -->
+	<div class="contactsWin-panel">
+		<!-- 登录人姓名 -->
+		<div class="contactsWin-panel-user">
+			<img class="_f-l" src="../../assets/images/head.png">
+			<span class="_uname f18 _f-l">陈老师</span>
+		</div>
+		<!-- 左搜索 -->
+		<div class="contactsWin-panel-search">
+			<input class="auto" type="text" name="">
+		</div>
+		<!-- 通讯录、添加、群组 -->
+		<ul class="contactsWin-panel-contacts">
+			<li (click)="getTabsStatus(1)"><img src="../../assets/images/Address_Book_24px_1177021_easyicon.net.png"><span [ngClass]="{'active': tabsStatus === 1}"></span></li>
+			<li (click)="getTabsStatus(2)"><img src="../../assets/images/user_24px_1137165_easyicon.net.png"><span [ngClass]="{'active': tabsStatus === 2}"></span></li>
+			<li (click)="getTabsStatus(3)"><img src="../../assets/images/user_24px_1137152_easyicon.net.png"><span [ngClass]="{'active': tabsStatus === 3}"></span></li>
+		</ul>
+		<!-- 通讯录、添加、群组面板 -->
+		<div [ngSwitch]="tabsStatus">
+			<!-- 通讯录面板 -->
+			<list *ngSwitchCase="1"></list>
+			<!-- 添加面板 -->
+			<addFriends *ngSwitchCase="2"></addFriends>
+			<!-- 群组面板 -->
+			<groups *ngSwitchCase="3"></groups>
+		</div>
+	</div>
+	<!-- 右分区 -->
+	<div class="contactsWin-content">
+		<!-- 右分区标题 -->
+		<div class="contactsWin-content-head">
+			<!-- 当前聊天窗口信息 -->
+			<span class="_selectedName">{{contactsService.selectedName}}</span>
+			<!-- 右上角功能按钮 -->
+			<ul class="_winBtn">
+				<li><img src="../../assets/images/menu_07.png"></li>
+				<li (click)="goBack()"><img src="../../assets/images/menu_09.png"></li>
+			</ul>
+		</div>
+		<!-- 聊天窗口主体区 -->
+		<div class="contactsWin-content-output">
+			<!-- 消息内容区 -->
+			<div class="content">
+			</div>
+		</div>
+		<!-- 发送功能区 -->
+		<div class="contactsWin-content-input">
+			<ul class="input-btn-list">
+				<li><img src="../../assets/images/send-function_07.png"></li>
+				<li><img src="../../assets/images/send-function_09.png"></li>
+				<li><img src="../../assets/images/send-function_11.png"></li>
+				<li><img src="../../assets/images/send-function_13.png"></li>
+				<li><img src="../../assets/images/send-function_15.png"></li>
+			</ul>
+			<textarea class="input-textarea" type="text" name="" value=""></textarea>
+			<input class="sendBTN" type="button" name="" value="发送(S)" />
+		</div>
+	</div>
+	<create-groups></create-groups>
+</div>

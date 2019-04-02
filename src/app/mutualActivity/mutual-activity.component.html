@@ -1,0 +1,99 @@
+<div id="interactivityWin" class="interactivityWin show_window this_open">
+	<div class="top_title">
+		<div class="menu">
+			<div class="title_name _f-l">
+				<img class="ml10 _f-l" src="../../assets/images/interactivity_logo.png">
+				<span class="_f-l">交互活动</span>
+			</div>
+			<!-- <ul class="fr">
+				<li class="_f-l mr zoom"><a href="###"><img src="images/menu_07.png"></a></li>
+				<li class="_f-l close"><a href="###"><img src="images/menu_09.png"></a></li>
+			</ul> -->
+		</div>
+	</div>
+	<div class="middle_content">
+		<div class="left_list _f-l">
+			<div class="div_list">
+				<span class="f14 active_title">网络家访</span>
+				<ul class="ul_list">
+					<li *ngFor="let homeVisitsMenuItem of homeVisitsMenu">
+						<span class="icon _f-l {{homeVisitsMenuItem.className}}"></span>
+						<span class="name _f-l f15">{{homeVisitsMenuItem.menuName}}</span>
+					</li>
+					<!-- <li class="active" [routerLink]="['/path']">
+						<span class="icon _f-l visits_reservation"></span>
+						<span class="name _f-l f15">家访预约</span>
+					</li>
+					<li>
+						<span class="icon _f-l visits_history"></span>
+						<span class="name _f-l f15">历史家访</span>
+					</li>
+					<li>
+						<span class="icon _f-l visits_feedback"></span>
+						<span class="name _f-l f15">家访反馈</span>
+					</li> -->
+				</ul>
+			</div>
+			<div class="div_list">
+				<span class="f14 active_title">网络家长会</span>
+				<ul class="ul_list">
+					<li *ngFor="let parentMeetingMenuItem of parentMeetingMenu">
+						<span class="icon _f-l {{parentMeetingMenuItem.className}}"></span>
+						<span class="name _f-l f15">{{parentMeetingMenuItem.menuName}}</span>
+					</li>
+					<!-- <li>
+						<span class="icon _f-l meeting_create"></span>
+						<span class="name _f-l f15">创建家长会</span>
+					</li>
+					<li>
+						<span class="icon _f-l meeting_history"></span>
+						<span class="name _f-l f15">历史家长会</span>
+					</li>
+					<li>
+						<span class="icon _f-l meeting_notice"></span>
+						<span class="name _f-l f15">通知相关教师及家长</span>
+					</li> -->
+				</ul>
+			</div>
+			<div class="div_list">
+				<span class="f14 active_title">班级活动</span>
+				<ul class="ul_list">
+					<li *ngFor="let classActivitiesitem of classActivitiesMenu">
+						<span class="icon _f-l {{classActivitiesitem.className}}"></span>
+						<span class="name _f-l f15">{{classActivitiesitem.menuName}}</span>
+					</li>
+					<!-- <li>
+						<span class="icon _f-l"></span>
+						<span class="name _f-l f15"></span>
+					</li>
+					<li><span class="icon _f-l"></span><span class="name _f-l f15"></span></li>
+					<li><span class="icon _f-l"></span><span class="name _f-l f15"></span></li> -->
+				</ul>
+			</div>
+		</div>
+		<div class="right_window _f-l">
+			<div class="choose_title">
+				<select id="choose_class">
+					<option>----选择班级----</option>
+					<option>一年一班</option>
+					<option>一年二班</option>
+					<option>一年三班</option>
+					<option>一年四班</option>
+					<option>一年五班</option>
+				</select>
+				<input type="button" name="search" value="检索" class="btn search">
+				<input type="button" name="create" value="创建预约" class="btn create">
+			</div>
+			<table class="visits_table">
+				
+			</table>
+		</div>
+
+	</div>
+	<div class="alert_bottom">
+		<img class="_f-l" src="images/alert.png">
+		<div class="_f-l">
+			<span class="data"></span>与<span class="parent_name"></span>的<span class="sex"></span>有家访预约
+		</div>
+	</div>
+</div>
